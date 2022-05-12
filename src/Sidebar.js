@@ -1,13 +1,13 @@
-import { Avatar, IconButton } from '@material-ui/core'
-import { ChatOutlined, DonutLarge, MoreVert, SearchOutlined } from '@material-ui/icons'
-import React, { useEffect, useState } from 'react'
+import { Avatar, IconButton, Popover } from '@material-ui/core';
+import { ChatOutlined, DonutLarge, MoreVert, SearchOutlined } from '@material-ui/icons';
+import React, { useEffect, useState } from 'react';
+import db, { auth } from './firebase';
+import './Sidebar.css';
+import SidebarChat from './SidebarChat';
 import { useStateValue } from './StateProvider';
-import './Sidebar.css'
-import db from './firebase'
-import SidebarChat from './SidebarChat'
 function Sidebar() {
     const [rooms, setRooms] = useState([]);
-    const [{user},dispatch] = useStateValue();
+    const [{ user }, dispatch] = useStateValue();
     useEffect(() => {
 
         const unsubscribe = db.collection("rooms").onSnapshot(snapshot => (
@@ -22,6 +22,21 @@ function Sidebar() {
             unsubscribe();
         }
     }, [])
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
+    const logout = () => {
+        auth.signOut();
+    }
     return (
         <div className='sidebar'>
             <div className="sidebar__header">
@@ -31,8 +46,24 @@ function Sidebar() {
                         <DonutLarge />
                     </IconButton>
                     <IconButton><ChatOutlined /></IconButton>
-                    <IconButton><MoreVert /></IconButton>
-
+                    <IconButton><MoreVert onClick={handleClick} />
+                        <Popover
+                            className='sidebar_headerPopoverBox'
+                            id={id}
+                            open={open}
+                            anchorEl={anchorEl}
+                            onClose={handleClose}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'left',
+                            }}
+                        >
+                            <li>New Group</li>
+                            <li>Starred Messages</li>
+                            <li>Settings</li>
+                            <li onClick={logout}>Log out</li>
+                        </Popover>
+                    </IconButton>
                 </div>
             </div>
             <div className="sidebar__search">

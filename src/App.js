@@ -1,9 +1,8 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './App.css';
-import Sidebar from './Sidebar';
 import Chat from './Chat';
 import Login from './Login';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useState } from 'react';
+import Sidebar from './Sidebar';
 import { useStateValue } from './StateProvider';
 function App() {
   const [{ user}, dispatch] = useStateValue();

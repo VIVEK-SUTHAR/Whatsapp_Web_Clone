@@ -34,9 +34,9 @@
     outline: none;
 }
 
-.sidebar_searchContainer > .MuiSvgIcon-root{
-   color: grey;
-   padding: 10px;
+.sidebar_searchContainer>.MuiSvgIcon-root {
+    color: grey;
+    padding: 10px;
 }
 
 .sidebar__headerRight {
@@ -50,7 +50,23 @@
     margin-right: 2vw;
     font-size: 24px !important;
 }
-.sidebar__chats{
+
+.sidebar__chats {
     flex: 1;
     overflow-y: scroll;
+}
+
+.sidebar_headerPopoverBox {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.sidebar_headerPopoverBox li {
+    margin: 1rem 1rem;
+    padding: 0.5rem;
+}
+
+.sidebar_headerPopoverBox li:hover {
+    background-color: #ebebeb;
 }

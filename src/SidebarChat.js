@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react'
 import { Avatar } from '@material-ui/core';
-import db from './firebase'
-
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import db from './firebase';
 import './SidebarChat.css';
-import { Link, Route, Routes } from 'react-router-dom';
 function SidebarChat({ id, addNewChat, name }) {
     const [seed, setSeed] = useState('');
     const [message,setMessage]=useState('');
     useEffect(() => {
         setSeed(Math.floor(Math.random() * 5000));
     }, []);
-
     const createChat = () => {
         const roomName = prompt("Enter Room name For Chat");
         if (roomName) {

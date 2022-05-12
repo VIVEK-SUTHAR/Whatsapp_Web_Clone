@@ -1,8 +1,6 @@
 import fs from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import { initializeApp } from "firebase/app";
-import { getFirestore } from 'firebase/firestore/lite';
 const firebaseConfig = {
    
 };
