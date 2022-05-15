@@ -2,12 +2,14 @@ import { Avatar, IconButton, Popover } from '@material-ui/core';
 import { ChatOutlined, DonutLarge, MoreVert, SearchOutlined } from '@material-ui/icons';
 import React, { useEffect, useState } from 'react';
 import db, { auth } from './firebase';
+import SettingsPanel from './Settings';
 import './Sidebar.css';
 import SidebarChat from './SidebarChat';
 import { useStateValue } from './StateProvider';
 function Sidebar() {
     const [rooms, setRooms] = useState([]);
     const [{ user }, dispatch] = useStateValue();
+    const [isSettings, setIsSettings] = useState(false)
     useEffect(() => {
 
         const unsubscribe = db.collection("rooms").onSnapshot(snapshot => (
@@ -37,53 +39,67 @@ function Sidebar() {
     const logout = () => {
         auth.signOut();
     }
+    const showSettings = () => {
+        // alert("hi")
+        setIsSettings(true)
+    }
     return (
         <div className='sidebar'>
-            <div className="sidebar__header">
-                <Avatar src={user?.photoURL} />
-                <div className="sidebar__headerRight">
-                    <IconButton>
-                        <DonutLarge />
-                    </IconButton>
-                    <IconButton><ChatOutlined /></IconButton>
-                    <IconButton><MoreVert onClick={handleClick} />
-                        <Popover
-                            className='sidebar_headerPopoverBox'
-                            id={id}
-                            open={open}
-                            anchorEl={anchorEl}
-                            onClose={handleClose}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                        >
-                            <li>New Group</li>
-                            <li>Starred Messages</li>
-                            <li>Settings</li>
-                            <li onClick={logout}>Log out</li>
-                        </Popover>
-                    </IconButton>
-                </div>
-            </div>
-            <div className="sidebar__search">
-                <div className="sidebar_searchContainer">
-                    <SearchOutlined />
-                    <input placeholder='Search Or start New chat'></input>
-                </div>
-            </div>
-            <div className="sidebar__chats">
+            {
+                isSettings ? (
+                    <SettingsPanel setIsSettings={setIsSettings} />
+                ) : (
+                    <>
+                        <div className="sidebar__header">
+                            <Avatar src={user?.photoURL} />
+                            <div className="sidebar__headerRight">
+                                <IconButton>
+                                    <DonutLarge />
+                                </IconButton>
+                                <IconButton><ChatOutlined /></IconButton>
+                                <IconButton><MoreVert onClick={handleClick} />
+                                    <Popover
+                                        className='sidebar_headerPopoverBox'
+                                        id={id}
+                                        open={open}
+                                        anchorEl={anchorEl}
+                                        onClose={handleClose}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'left',
+                                        }}
+                                    >
+                                        <li>New Group</li>
+                                        <li>Starred Messages</li>
+                                        <li onClick={showSettings} >Settings</li>
+                                        <li onClick={logout}>Log out</li>
+                                    </Popover>
+                                </IconButton>
+                            </div>
+                        </div>
+                        <div className="sidebar__search">
+                            <div className="sidebar_searchContainer">
+                                <SearchOutlined />
+                                <input placeholder='Search Or start New chat'></input>
+                            </div>
+                        </div>
+                        <div className="sidebar__chats">
 
-                <SidebarChat addNewChat />
-                {
-                    rooms.map(room => (
-                        <SidebarChat key={room.id} id={room.id} name={room.data.name} />
-                    ))
-                }
+                            <SidebarChat addNewChat />
+                            {
+                                rooms.map(room => (
+                                    <SidebarChat key={room.id} id={room.id} name={room.data.name} />
+                                ))
+                            }
 
-            </div>
+                        </div>
+                    </>
+                )
+            }
+
         </div>
     )
+
 }
 
 export default Sidebar

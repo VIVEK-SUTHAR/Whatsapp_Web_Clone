@@ -1,0 +1,83 @@
+.settings {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.settings_header {
+    min-height: 14vh;
+    min-width: 100%;
+    background-color: rgba(0, 131, 0, 0.752);
+    display: flex;
+    flex-direction: row;
+    font-size: 24px;
+    font-weight: 650;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-bottom: 15px;
+    color: aliceblue;
+}
+
+.arrowback {
+    margin: 0 15px;
+}
+
+.settings_UserProfile {
+    min-height: 16vh;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.settings_UserAvatar {
+    min-height: 90%;
+    min-width: 23%;
+}
+
+.settings_UserProfile span {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.settings_UserProfile span p {
+    font-size: 19px;
+    color: grey;
+}
+
+.settings_options {
+    /* outline: 1px solid red; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-x: hidden;
+}
+
+.settings_option {
+    /* outline: 1px solid green; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+    padding: 0px 4rem;
+    min-height: 4vh;
+    margin: 3px 0;
+    color:grey;
+}
+.settings_option:hover{
+    background-color: rgba(0, 0,0, 0.045);
+}
+.settings_option span{
+    border-bottom: 1px solid lightgray;
+    min-width:180%;
+    font-size: 19px;
+    margin-left: 2rem;
+    padding-top: 5px;
+    padding-bottom: 25px;
+    color: black;
+}

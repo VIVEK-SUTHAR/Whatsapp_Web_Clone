@@ -1,12 +1,12 @@
-import { Avatar, Button, IconButton } from '@material-ui/core'
-import { AttachFile, ChatOutlined, DonutLarge, InsertEmoticon, MicOutlined, MoreVert, SearchOutlined } from '@material-ui/icons';
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
-import './Chat.css'
-import db from './firebase';
+import { Avatar, Button, IconButton, Popover } from '@material-ui/core';
+import { AttachFile, InsertEmoticon, MicOutlined, MoreVert, SearchOutlined } from '@material-ui/icons';
 import fs from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import './Chat.css';
+import db from './firebase';
 import { useStateValue } from './StateProvider';
 
 function Chat() {
@@ -39,6 +39,18 @@ function Chat() {
         }
 
     }, [roomId])
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
     return (
         <div className='chat' >
             <div className="chat_header">
@@ -47,8 +59,8 @@ function Chat() {
                     <h3>{roomName}</h3>
                     <p>Last Seen At {
                         new Date(
-                            messages[messages.length - 1]?.
-                                timestamp?.toDate()
+                            messages[messages.length - 1]
+                                ?.timestamp?.toDate()
                         ).toUTCString()}
                     </p>
                 </div>
@@ -57,7 +69,27 @@ function Chat() {
                         <SearchOutlined />
                     </IconButton>
                     <IconButton><AttachFile /></IconButton>
-                    <IconButton><MoreVert /></IconButton>
+                    <IconButton><MoreVert onClick={handleClick} />
+                        <Popover
+                            className='sidebar_headerPopoverBoxChat'
+                            id={id}
+                            open={open}
+                            anchorEl={anchorEl}
+                            onClose={handleClose}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'left',
+                            }}
+                        >
+                            <li>Contact Info</li>
+                            <li>Select  Messages</li>
+                            <li>Close Chat</li>
+                            <li >Mute Notifications</li>
+                            <li >Disappearing Messages</li>
+                            <li >Clear Messages</li>
+                            <li >Delete Chat</li>
+                        </Popover>
+                    </IconButton>
                 </div>
             </div>
             <div className="chat_body">
@@ -73,7 +105,7 @@ function Chat() {
 
             </div>
             <div className="chat_footer">
-                <IconButton><InsertEmoticon /></IconButton> 
+                <IconButton><InsertEmoticon /></IconButton>
                 <form>
                     <input type="text" placeholder='Type A Message' onChange={e => setInput(e.target.value)} />
                     <Button type='submit' onClick={sendMessage}>Send A Message</Button>

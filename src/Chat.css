@@ -1,34 +1,39 @@
-.chat{
+.chat {
     /* border: 1px solid black; */
     flex: 0.65;
     display: flex;
     flex-direction: column;
     /* background-color: aqua; */
 }
-.chat_header{
+
+.chat_header {
     display: flex;
     align-items: center;
-
     padding: 20px;
     border-bottom: 1px solid lightgrey;
 }
-.chat_headerInfo{
+
+.chat_headerInfo {
     flex: 1;
     padding-left: 20px;
 }
-.chat_headerInfo>h3{
+
+.chat_headerInfo>h3 {
     margin-bottom: 3px;
     font-weight: 500;
 }
-.chat_headerInfo>p{
+
+.chat_headerInfo>p {
     color: gray;
 }
-.chat_headerRight{
+
+.chat_headerRight {
     display: flex;
     justify-content: space-between;
     min-width: 100px;
 }
-.chat_body{
+
+.chat_body {
     flex: 1;
     background: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
     background-repeat: repeat;
@@ -36,17 +41,20 @@
     padding: 30px;
     overflow: auto;
 }
-.chat_name{
+
+.chat_name {
     position: absolute;
     top: -12px;
     font-size: xx-small;
     font-weight: 800;
 }
-.chat_timestamp{
+
+.chat_timestamp {
     margin-left: 10px;
     font-size: xx-small;
 }
-.chat_message{
+
+.chat_message {
     position: relative;
     font-size: 16px;
     padding: 10px;
@@ -55,11 +63,13 @@
     width: fit-content;
     margin-bottom: 25px;
 }
-.chat_receiver{
+
+.chat_receiver {
     margin-left: auto;
     background-color: #dcf8c6;
 }
-.chat_footer{
+
+.chat_footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -68,21 +78,37 @@
     height: max-content;
     padding: 10px 0;
 }
-.chat_footer >form{
+
+.chat_footer>form {
     display: flex;
     flex: 1;
 }
-.chat_footer>form>input{
+
+.chat_footer>form>input {
     flex: 1;
     border-radius: 30px;
     padding: 10px;
     border: none;
     outline: none;
 }
-.chat_footer>form>button{
+
+.chat_footer>form>button {
     display: none;
 }
-.chat_footer>  .MuiSvgIcon-root{
+
+.chat_footer>.MuiSvgIcon-root {
     padding: 10px;
     color: grey;
+}
+
+.sidebar_headerPopoverBoxChat {
+    list-style: none;
+    width: 100%;
+    padding: 1.25rem;
+}
+
+.sidebar_headerPopoverBoxChat li {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    padding: 10px 15px;
 }
