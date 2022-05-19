@@ -1,0 +1,31 @@
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0 auto;
+    width: 25%;
+    height: 100%;
+    background-color: #f5f5f5;
+    padding: 0;
+    border-radius: 0;
+}
+
+.conatact_header {
+    width: 100%;
+    min-height: 12.6%;
+    background-color: rgba(237, 237, 237, 1);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.contact_avatar{
+    margin-left: 1.3rem;
+    /* outline: 1px solid red; */
+}
+.conatact_header h3{
+    margin-left:1.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}

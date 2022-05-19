@@ -34,8 +34,8 @@
 }
 
 .settings_UserAvatar {
-    min-height: 90%;
-    min-width: 23%;
+    min-height: 69%;
+    min-width: 22%;
 }
 
 .settings_UserProfile span {
@@ -64,20 +64,21 @@
     justify-content: flex-start;
     align-items: center;
     padding-left: 20px;
-    padding: 0px 4rem;
+    padding: 0px 2rem;
     min-height: 4vh;
-    margin: 3px 0;
+    /* margin: 3px 0; */
     color:grey;
+    transition: all 0.01s ease-in-out;
 }
 .settings_option:hover{
-    background-color: rgba(0, 0,0, 0.045);
+    background-color: rgba(0, 0,0, 0.095);
 }
 .settings_option span{
     border-bottom: 1px solid lightgray;
     min-width:180%;
     font-size: 19px;
-    margin-left: 2rem;
-    padding-top: 5px;
-    padding-bottom: 25px;
+    margin-left: 1.5rem;
+    padding-top: 15px;
+    padding-bottom: 15px;
     color: black;
 }

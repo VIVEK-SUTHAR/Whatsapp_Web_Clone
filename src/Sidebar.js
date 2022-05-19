@@ -69,10 +69,10 @@ function Sidebar() {
                                             horizontal: 'left',
                                         }}
                                     >
-                                        <li>New Group</li>
-                                        <li>Starred Messages</li>
-                                        <li onClick={showSettings} >Settings</li>
-                                        <li onClick={logout}>Log out</li>
+                                        <div className='popover_item_sidebar'>New Group</div>
+                                        <div className='popover_item_sidebar'>Starred Messages</div>
+                                        <div className='popover_item_sidebar' onClick={showSettings} >Settings</div>
+                                        <div className='popover_item_sidebar' onClick={logout}>Log out</div>
                                     </Popover>
                                 </IconButton>
                             </div>

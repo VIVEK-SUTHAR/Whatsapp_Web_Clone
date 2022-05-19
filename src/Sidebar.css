@@ -2,7 +2,7 @@
     /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
-    flex: 0.35;
+    flex: 0.30;
 }
 
 .sidebar__header {
@@ -52,7 +52,7 @@
 }
 
 .sidebar__chats {
-    flex: 1;
+    flex: 2;
     overflow-y: scroll;
 }
 
@@ -60,13 +60,18 @@
     display: flex;
     flex-direction: column;
     list-style: none;
+    margin-top: 1.2rem;
+    margin-left: -9rem;
 }
 
-.sidebar_headerPopoverBox li {
-    margin: 1rem 1rem;
-    padding: 0.5rem;
+.popover_item_sidebar {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    transition: all 0.01s ease-in-out;
 }
 
-.sidebar_headerPopoverBox li:hover {
-    background-color: #ebebeb;
+.popover_item_sidebar:hover {
+    background-color: rgba(237, 237, 237, 1);
 }
