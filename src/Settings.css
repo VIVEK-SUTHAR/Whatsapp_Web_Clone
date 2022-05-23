@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    background-color: white;
 }
 
 .settings_header {
@@ -51,24 +52,25 @@
 .settings_options {
     /* outline: 1px solid red; */
     width: 100%;
+    padding: 5px 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     overflow-x: hidden;
+    /* outline: 1px solid green; */
 }
 
 .settings_option {
-    /* outline: 1px solid green; */
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     padding-left: 20px;
     padding: 0px 2rem;
-    min-height: 4vh;
+    min-height:4vh;
     /* margin: 3px 0; */
     color:grey;
-    transition: all 0.01s ease-in-out;
+    transition: all 0.02s ease-in-out;
 }
 .settings_option:hover{
     background-color: rgba(0, 0,0, 0.095);
@@ -76,9 +78,12 @@
 .settings_option span{
     border-bottom: 1px solid lightgray;
     min-width:180%;
-    font-size: 19px;
+    font-size: 17px;
     margin-left: 1.5rem;
     padding-top: 15px;
     padding-bottom: 15px;
     color: black;
+}
+.settings_option .last{
+    border-bottom: 0px;
 }

@@ -2,7 +2,7 @@ import fs from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 const firebaseConfig = {
-   
+
 };
 const firebaseApp = fs.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();

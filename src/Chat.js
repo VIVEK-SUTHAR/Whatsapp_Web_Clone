@@ -118,7 +118,7 @@ function Chat() {
             </div>
             {
                 isContatctInfo ? (
-                    <ContactInfo setIsContatctInfo={setIsContatctInfo} />
+                    <ContactInfo setIsContatctInfo={setIsContatctInfo} seed={seed} roomName={roomName}/>
                 ) : (
                     <span></span>
                 )

@@ -37,8 +37,8 @@ const SettingsPanel = ({ setIsSettings }) => {
         <div className="settings_option">
           <Keyboard /><span>Keyboard Shortcuts</span>
         </div>
-        <div className="settings_option">
-          <Help /><span>Help</span>
+        <div className="settings_option ">
+          <Help /><span className='last'>Help</span>
         </div>
       </div>
     </div>

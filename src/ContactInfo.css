@@ -20,12 +20,56 @@
     justify-content: flex-start;
     align-items: center;
 }
-.contact_avatar{
+
+.contact_avatar {
     margin-left: 1.3rem;
     /* outline: 1px solid red; */
 }
-.conatact_header h3{
-    margin-left:1.5rem;
+
+.conatact_header h3 {
+    margin-left: 1.5rem;
     font-size: 1.5rem;
     font-weight: 500;
+}
+
+.contact_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 81%;
+    min-height: 28vh;
+    /* outline: 1px solid red; */
+    padding: 30px;
+    margin: 8px 0;
+    background-color: rgba(237, 237, 237, 1);
+}
+
+.conatct_avatar {
+    background-color: grey;
+    transform: scale(3);
+}
+
+.contact_userDetail {
+    text-align: center;
+}
+
+.contact_userDetail p:first-child {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.contact_userDetail p:last-child {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    color: grey;
+}
+
+.contact_aboutUser {
+    width: 87.2%;
+    background-color: rgba(237, 237, 237, 1);
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
