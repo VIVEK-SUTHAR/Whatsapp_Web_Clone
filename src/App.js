@@ -5,13 +5,13 @@ import Login from './Login';
 import Sidebar from './Sidebar';
 import { useStateValue } from './StateProvider';
 function App() {
-  const [{ user}, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
 
   return (
     <Router>
       <div className="App">
-        {!user ? (
-          <Login/>
+        {user ? (
+          <Login />
         ) : (<div className="app__body">
           <Sidebar />
           <Routes>

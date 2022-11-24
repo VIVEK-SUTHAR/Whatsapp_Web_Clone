@@ -3,7 +3,7 @@ import { AttachFile, InsertEmoticon, MicOutlined, MoreVert, SearchOutlined } fro
 import fs from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './Chat.css';
 import ContactInfo from './ContactInfo';
@@ -118,7 +118,7 @@ function Chat() {
             </div>
             {
                 isContatctInfo ? (
-                    <ContactInfo setIsContatctInfo={setIsContatctInfo} seed={seed} roomName={roomName}/>
+                    <ContactInfo setIsContatctInfo={setIsContatctInfo} seed={seed} roomName={roomName} />
                 ) : (
                     <span></span>
                 )

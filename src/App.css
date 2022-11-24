@@ -1,29 +1,32 @@
-*{
+* {
   transition: all 0.5s ease-in-out;
 
 }
-::-webkit-scrollbar{
+
+::-webkit-scrollbar {
   width: 5px;
   border-radius: 5px;
 }
-::-webkit-scrollbar-thumb{
+
+::-webkit-scrollbar-thumb {
   width: 5px;
   background-color: rgb(255, 255, 255);
   border-radius: 5px
 }
-.App{
+
+
+.App {
   display: grid;
   place-items: center;
   background-color: #dadbd3;
   height: 100vh;
 }
-.app__body{
+
+.app__body {
   display: flex;
   background-color: #ededed;
   margin-top: -50px;
   height: 90vh;
   width: 90vw;
-  box-shadow: -1px 4px 20px -6px  rgba(0, 0, 0, 0.2);
+  box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.2);
 }
-
-  

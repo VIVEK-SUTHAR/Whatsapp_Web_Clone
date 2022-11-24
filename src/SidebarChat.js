@@ -1,5 +1,5 @@
 import { Avatar } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import db from './firebase';
 import './SidebarChat.css';
@@ -31,7 +31,6 @@ function SidebarChat({ id, addNewChat, name }) {
     }, [id])
     return (
         <>
-
             {!addNewChat ? (
             <Link to={`rooms/${id}`}>
                 <div className="sidebarChat">
@@ -46,7 +45,6 @@ function SidebarChat({ id, addNewChat, name }) {
             <div onClick={createChat} className="sidebarChat">
                 <h2>Add new chat</h2>
             </div>
-
             )}
             
         </>
